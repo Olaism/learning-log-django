@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/subjects.css' %}">
+{% endblock extra_css %}
+
+{% block title %}
+    Subjects
+{% endblock title %}
+
+{% block content %}
+    <main id="{{ section }}">
+        <div class="container">
+            <h2>{{ subject.name }}</h2>
+            <a href="{% url 'logs:new_topic' subject.slug %}" class="new-btn">New Topic</a>
+            <div class="subjects">
+                {% for topic in subject.topics.all %}
+                    <div class="subject">
+                        <div class="date">{{ topic.date_added|date:"D, d M Y" }}</div>
+                        <h3><a href="{% url 'logs:topic_detail' subject.slug topic.pk %}">{{ topic.topic }}</a></h3>
+                    </div>
+                {% empty %}
+                    <p>There are no topics yet.</p>
+                {% endfor %}
+            </div>
+        </div>
+    </main>
+{% endblock content %}

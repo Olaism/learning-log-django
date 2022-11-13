@@ -1,0 +1,94 @@
+* {
+    box-sizing: border-box;
+}
+
+*::before {
+    box-sizing: border-box;
+}
+
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    display: grid;
+    grid-template-rows: 1fr 100%;
+}
+
+ul {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+.container {
+    max-width: 900px;
+    width: 95%;
+    margin: 0 auto;
+}
+
+.error {
+    color: #d03333;
+}
+
+.brand-name a {
+    color: #242424;
+}
+
+.new-btn {
+    background: rgb(70, 132, 186);
+    padding: 0.4rem 0.8rem;
+    color: #fff;
+    border-radius: 0.2rem;
+}
+
+header {
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 4rem;
+    border-bottom: 1px solid #FAFAFA;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
+div.brand-name {
+    flex: 1 50%;
+}
+
+ul.navbar {
+    flex: 1 50%;
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.7rem;
+    font-size: 0.725rem;
+}
+
+ul.navbar a {
+    color: #000;
+}
+
+/* Login and Signup */
+.nav-auth {
+    border-radius: 0.1rem;
+    padding: 0.5rem 0.75rem;
+}
+
+ul.navbar .logger {
+    background-color: #7AD8E0;
+    color: #fff;
+}
+
+ul.navbar .sign-up {
+    background-color: #8af1ad;
+    color: #fff;
+}

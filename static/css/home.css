@@ -1,0 +1,73 @@
+main#home {
+    min-height: 90vh;
+    background-color: #72c0a6;
+}
+
+main#home .container {
+    height: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+}
+
+section.info-page {
+    max-width: 700px;
+    width: 100%;
+    padding: 4rem;
+}
+
+section.info-page h3 {
+    color: #fff;
+    margin: 0 0 0 0.1rem;
+    letter-spacing: 1.5px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 2rem;
+}
+
+form#search {
+    margin-top: 0.3rem;
+    display: flex;
+    width: 100%;
+    gap: 0;
+}
+
+form#search input[type="search"] {
+    flex: 1 88%;
+    height: 2rem;
+    border: 0;
+}
+
+form#search button[type="submit"] {
+    background: #ea7c0e;
+    color: #fff;
+    border: none;
+}
+
+section.home-topics {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    background: #fff;
+    border-radius: 9px;
+    overflow: hidden;
+}
+
+div.home-topic,
+p.home-topic {
+    padding: 1rem;
+}
+
+.topic-title {
+    margin-bottom: 0;
+}
+
+.topic-text {
+    margin-top: 0.4rem;
+}
+
+span.date-edited {
+    background: #ddd;
+    padding: 0.5rem;
+    text-align: center;
+    border-radius: 18px;
+    font-size: 0.8rem;
+}

@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    {% block extra_css %}{% endblock extra_css %}
+    <title>{% block title %} Learning Logs {% endblock title %}</title>
+</head>
+<body>
+    <header>
+        <div class="brand-name">
+            <a href="{% url 'home' %}">Learning Log</a></div>
+        <ul class="navbar">
+            {% if user.is_authenticated %}
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'logs:subject_list' %}">Subjects</a></li>
+                <li><a href="{% url 'logs:new_subject' %}">New</a></li>
+                <li><a href="{% url 'logout' %}" class="nav-auth logger">Log out</a></li>
+            {% else %}
+                <li><a href="{% url 'users:signup' %}" class="nav-auth sign-up">Sign Up</a></li>
+                <li><a href="{% url 'login' %}" class="nav-auth logger">Log In</a></li>
+            {% endif %}
+        </ul>
+    </header>
+    {% block content %}
+    {% endblock content %}
+</body>
+</html>

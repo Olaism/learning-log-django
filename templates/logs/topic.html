@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/topics.css' %}">
+{% endblock extra_css %}
+
+{% block title %}
+    Topic: {{ topic.topic }}
+{% endblock title %}
+
+
+{% block content %}
+    <main id="{{ section }}">
+        <div class="container">
+            <h3>Topic: {{ topic.topic }}</h3>
+    
+            <p>Entries:</p>
+            <a href="{% url 'logs:new_entry' topic.subject.slug topic.pk %}" class="new-btn">New</a>
+                <ul class="entries">
+                    {% for entry in topic.entries.all %}
+                        <li>
+                            <span class="date">{{ entry.date_added }}</span>
+                            <p>{{ entry.text|linebreaks }}</p>
+                            <span class="edit">
+                                <a href="{% url 'logs:edit_entry' entry.topic.subject.slug entry.topic.pk entry.pk %}">Edit</a>
+                            </span> |
+                            <span class="delete">
+                                <a href="{% url 'logs:delete_entry' entry.topic.subject.slug entry.topic.pk entry.pk %}">Delete</a>
+                            </span>
+                        </li>
+                    {% empty %}
+                        <li class="empty">There are no entries for this topic yet.</li>
+                    {% endfor %}
+                </ul>
+        </div>
+    </main>
+{% endblock content %}

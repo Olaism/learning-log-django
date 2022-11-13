@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock extra_css %}
+
+{% block title %} {{ block.super }} - Home {% endblock title %}
+
+{% block content %}
+<main id="{{ section }}">
+    <div class="container">
+        <section class="info-page">
+            <h3>Track your learning.</h3>
+            <h3>Anytime, Anywhere.</h3>
+            <form action="{% url 'logs:subject_list' %}" id="search">
+                <input type="search" name="q" id="search" placeholder="Search subject..." />
+                <button type="submit">Search</button>
+            </form>
+        </section>
+        <section class="home-topics">
+            {% if user.is_authenticated %}
+                <div class="home-topic">
+                    <h4 class="topic-title">Hello, World</h4>
+                    <p class="topic-text">A simple python page for the employer.</p>
+                    <p><span class="date-edited">3 hours</span></p>
+                </div>
+                <div class="home-topic">
+                    <h4 class="topic-title">Hello, World</h4>
+                    <p class="topic-text">A simple python page for the employer.</p>
+                    <p><span class="date-edited">3 hours</span></p>
+                </div>
+                <div class="home-topic">
+                    <h4 class="topic-title">Hello, World</h4>
+                    <p class="topic-text">A simple python page for the employer.</p>
+                    <p><span class="date-edited">3 hours</span></p>
+                </div>
+            {% else %}
+                <p class="home-topic">
+                    <a href="{% url 'users:signup' %}">Register an account </a>
+                    to make your own Learning Log, and list the topics you're 
+                    learning about.
+                </p>
+                <p class="home-topic">
+                    Whenever you learn something new about a topic, make an entry 
+                    summarizing what you've learned.
+                </p>
+            {% endif %}
+        </section>
+    </div>
+</main>
+{% endblock content %}

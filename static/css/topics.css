@@ -1,0 +1,21 @@
+ul.entries {
+    list-style-type: circle;
+}
+
+ul.entries li {
+    color: #242424;
+}
+
+ul.entries span.date {
+    font-size: 0.7rem;
+    margin-bottom: 0;
+}
+
+ul.entries p {
+    margin: 0.4rem 0;
+}
+
+span.edit a,
+span.delete a{
+    font-size: 0.8rem;
+}
